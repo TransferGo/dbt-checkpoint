@@ -26,7 +26,7 @@ def validate_tags(
     include_disabled: bool = False,
 ) -> int:
     paths = get_missing_file_paths(
-        paths, manifest, extensions=[".sql"], exclude_pattern=exclude_pattern
+        paths, manifest, extensions=[".sql", ".yml", ".yaml"], exclude_pattern=exclude_pattern
     )
     valid_tags = set(tags)
     status_code = 0
