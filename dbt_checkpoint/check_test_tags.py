@@ -30,7 +30,6 @@ def validate_tags(
     )
     valid_tags = set(tags)
     status_code = 0
-    row_number = 0
     sqls = get_model_sqls(paths, manifest, include_disabled)
     filenames = set(sqls.keys())
 
@@ -53,9 +52,8 @@ def validate_tags(
             if not test_tags.issubset(valid_tags) or not test_tags:
                 status_code = 1
                 list_diff = list(test_tags.difference(valid_tags))
-                row_number += 1
                 print(
-                    f"{row_number}. {test.test_id} has wrong tags: {list_diff}"
+                    f"{test.test_id} has wrong tags: {list_diff}"
                 )
                 
     return status_code
